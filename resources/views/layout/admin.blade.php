@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POS</title>
+     <link rel="stylesheet" href="{{asset('bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+@yield('isi')
     <script src="{{asset('jquery.min.js')}}" charset="utf-8"></script>
 </head>
 <body>
@@ -34,30 +36,33 @@
 						<img src="{{asset('user.png')}}" alt="">
                     <p id="nama-admin">hai Admin</p>
 					</center>
-					<li class="item">
-					<a href=" {{url('admin/index')}}" class="menu-btn">
-							<i class="fas fa-table"></i><span>Home</span>
-						</a>
-					</li>
-					<li class="item" id="meja">
-						<a href="#" class="menu-btn">
-							<i class="fas fa-info-circle"></i><span>Meja</span>
-						</a>
-					</li>
-					<li class="item" id="profile">
-						<a href="#profile" class="menu-btn">
-							<i class="fas fa-user-circle"></i><span>User Manajemen</span>
-						</a>
-					</li>
-					<li class="item" id="gudang">
-						<a href="#gudang" class="menu-btn">
-							<i class="fas fa-door-open"></i><span>Gudang <i class="fas fa-chevron-down drop-down"></i></span>
-						</a>
-						<div class="sub-menu">
-							<a href="#kopi"><i class="fas fa-coffee"></i><span>Kopi</span></a>
-							<a href="#food-and-beverage"><i class="fas fa-cocktail"></i><span>Food and Beverage</span></a>
-						</div>
-					</li>
+					<ul>
+						<li class="item">
+							<a href=" {{url('admin/index')}}" class="menu-btn">
+									<i class="fas fa-table"></i><span>Home</span>
+								</a>
+							</li>
+							<li class="item" id="meja">
+								<a href="#" class="menu-btn">
+									<i class="fas fa-info-circle"></i><span>Meja</span>
+								</a>
+							</li>
+							<li class="item" id="profile">
+								<a href="#profile" class="menu-btn">
+									<i class="fas fa-user-circle"></i><span>User Manajemen</span>
+								</a>
+							</li>
+							<li class="item" id="gudang">
+								<a href="#gudang" class="menu-btn">
+									<i class="fas fa-door-open"></i><span>Gudang <i class="fas fa-chevron-down drop-down"></i></span>
+								</a>
+								<div class="sub-menu">
+									<a href="#kopi"><i class="fas fa-coffee"></i><span>Kopi</span></a>
+									<a href="#food-and-beverage"><i class="fas fa-cocktail"></i><span>Food and Beverage</span></a>
+								</div>
+							</li>
+					</ul>
+
 				</div>
 			</div>
 			<!--sidebar end-->
@@ -79,6 +84,10 @@
 		$(document).ready(function(){
 			$(".sidebar-btn").click(function(){
 				$(".wrapper").toggleClass("collapse");
+
+			});
+			$(function() {
+				$('ul a[href~="' + location.href + '"]').parents('li').addClass('active');
 			});
 		});
         $.ajax({

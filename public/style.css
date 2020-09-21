@@ -57,10 +57,7 @@ body {
   color: #2ac4b4;
   background-color: #fff;
 }
-.wrapper .header .header-menu .sidebar-btn .menu-btn .active {
-    color: #2ac4b4;
-    background-color: #fff;
-  }
+
 .wrapper .header .header-menu ul {
   display: flex;
 }
@@ -132,6 +129,10 @@ body {
   color: #4CCEE8;
   background-color: #fff;
 }
+.wrapper .sidebar .sidebar-menu .item.active .menu-btn {
+  color: #4CCEE8;
+    background-color: #fff;
+  }
 
 .wrapper .sidebar .sidebar-menu .item .menu-btn i {
   margin-right: 20px;
@@ -213,8 +214,6 @@ body {
 }
 
 .wrapper .main-container .card {
-  background: #fff;
-  padding: 15px;
   margin-bottom: 10px;
   font-size: 14px;
 }
