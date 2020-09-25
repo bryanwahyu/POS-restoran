@@ -10,4 +10,12 @@ class AdminFrontController extends Controller
     {
         return view('admin.index');
     }
+    public function gudang_kopi()
+    {
+        return view('admin.kopi');
+    }
+    public function detail_kopi($id)
+    {
+        return view('admin.kopi.detail',compact('id'));
+    }
 }

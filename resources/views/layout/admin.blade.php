@@ -7,8 +7,11 @@
      <link rel="stylesheet" href="{{asset('bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
-@yield('isi')
     <script src="{{asset('jquery.min.js')}}" charset="utf-8"></script>
+    <script src="{{asset('bootstrap.min.js')}}"></script>
+    <script src="{{asset('popper.min.js') }}"></script>
+@yield('isi')
+
 </head>
 <body>
 
@@ -43,7 +46,7 @@
 								</a>
 							</li>
 							<li class="item" id="meja">
-								<a href="#" class="menu-btn">
+								<a href="" class="menu-btn">
 									<i class="fas fa-info-circle"></i><span>Meja</span>
 								</a>
 							</li>
@@ -57,8 +60,8 @@
 									<i class="fas fa-door-open"></i><span>Gudang <i class="fas fa-chevron-down drop-down"></i></span>
 								</a>
 								<div class="sub-menu">
-									<a href="#kopi"><i class="fas fa-coffee"></i><span>Kopi</span></a>
-									<a href="#food-and-beverage"><i class="fas fa-cocktail"></i><span>Food and Beverage</span></a>
+									<a href="{{url('admin/gudang/kopi')}}"><i class="fas fa-coffee"></i><span>Kopi</span></a>
+                                <a href="{{url('/admin/gudang/stok')}}"><i class="fas fa-cocktail"></i><span>Food and Beverage</span></a>
 								</div>
 							</li>
 					</ul>

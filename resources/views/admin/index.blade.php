@@ -215,5 +215,6 @@ let data2={
              type: 'line',
              data: data2
           });
+          
         </script>
 @endsection
