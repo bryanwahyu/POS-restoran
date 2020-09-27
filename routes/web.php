@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','AuthFrontController@login');
 Route::group(['prefix' => 'admin'], function () {
  Route::get('/index','AdminFrontController@index');
+ Route::get('/profile','AdminFrontController@profile');
  Route::get('/gudang/kopi','AdminFrontController@gudang_kopi');
  Route::get('/gudang/kopi/{id}','AdminFrontController@detail_kopi');
  

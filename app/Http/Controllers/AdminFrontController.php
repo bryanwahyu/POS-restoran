@@ -10,6 +10,10 @@ class AdminFrontController extends Controller
     {
         return view('admin.index');
     }
+    public function profile()
+    {
+        return view('admin.profile');
+    }
     public function gudang_kopi()
     {
         return view('admin.kopi');

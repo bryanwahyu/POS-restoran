@@ -51,7 +51,7 @@
 								</a>
 							</li>
 							<li class="item" id="profile">
-								<a href="#profile" class="menu-btn">
+								<a href="{{url('admin/profile')}}" class="menu-btn">
 									<i class="fas fa-user-circle"></i><span>User Manajemen</span>
 								</a>
 							</li>
