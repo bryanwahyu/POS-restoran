@@ -45,13 +45,23 @@
 									<i class="fas fa-table"></i><span>Home</span>
 								</a>
 							</li>
-							<li class="item" id="meja">
-								<a href="" class="menu-btn">
+                            <li class="item" id="menu">
+                                <a href="{{url('admin/menu')}}" class="menu-btn">
+                                        <i class="fas fa-utensils"></i><span>Menu</span>
+                                    </a>
+                            </li>
+                            <li class="item" id="meja">
+                            <a href="{{url('admin/meja')}}" class="menu-btn">
 									<i class="fas fa-info-circle"></i><span>Meja</span>
+								</a>
+                            </li>
+                            <li class="item" id="order">
+								<a href="{{url('admin/order')}}" class="menu-btn">
+									<i class="fas fa-receipt"></i><span>Order</span>
 								</a>
 							</li>
 							<li class="item" id="profile">
-								<a href="{{url('admin/profile')}}" class="menu-btn">
+								<a href="{{url('admin/user')}}" class="menu-btn">
 									<i class="fas fa-user-circle"></i><span>User Manajemen</span>
 								</a>
 							</li>
@@ -62,6 +72,15 @@
 								<div class="sub-menu">
 									<a href="{{url('admin/gudang/kopi')}}"><i class="fas fa-coffee"></i><span>Kopi</span></a>
                                 <a href="{{url('/admin/gudang/stok')}}"><i class="fas fa-cocktail"></i><span>Food and Beverage</span></a>
+								</div>
+                            </li>
+                            <li class="item" id="laporan">
+								<a href="#laporan" class="menu-btn">
+									<i class="fas fa-file"></i><span>Laporan<i class="fas fa-chevron-down drop-down"></i></span>
+								</a>
+								<div class="sub-menu">
+									<a href="{{url('admin/laporan/kopi')}}"><i class="fas fa-balance-scale"></i><span>Keuangan</span></a>
+                                <a href="{{url('/admin/laporan/stok')}}"><i class="fas fa-cocktail"></i><span>Stok</span></a>
 								</div>
 							</li>
 					</ul>

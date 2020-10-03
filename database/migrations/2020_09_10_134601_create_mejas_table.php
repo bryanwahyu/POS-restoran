@@ -15,7 +15,7 @@ class CreateMejasTable extends Migration
     {
         Schema::create('mejas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_meja');
+            $table->string('nama');
             $table->integer('kapasistas');
             $table->timestamps();
         });

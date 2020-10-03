@@ -15,11 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','AuthFrontController@login');
 Route::group(['prefix' => 'admin'], function () {
- Route::get('/index','AdminFrontController@index');
- Route::get('/profile','AdminFrontController@profile');
- Route::get('/gudang/kopi','AdminFrontController@gudang_kopi');
- Route::get('/gudang/kopi/{id}','AdminFrontController@detail_kopi');
- 
+    Route::get('/index','AdminFrontController@index');
+    Route::get('/user','AdminFrontController@user');
+    Route::get('/gudang/kopi','AdminFrontController@gudang_kopi');
+    Route::get('gudang/stok','AdminFrontController@gudang_bahan');
+    Route::get('gudang/stok/{id}','AdminFrontController@detail_bahan');
+    Route::get('/gudang/kopi/{id}','AdminFrontController@detail_kopi');
+    Route::get('/meja','AdminFrontController@meja');
+    Route::get('/menu','AdminFrontController@menu');
+    
+
 });
 Route::group(['prefix' => 'kasir'], function () {
  Route::get('/index','KasirFrontController@index');

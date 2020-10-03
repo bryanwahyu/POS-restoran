@@ -14,7 +14,7 @@ class MejaController extends Controller
      */
     public function index()
     {
-        $json['data']=Meja::with('order');
+        $json['data']=Meja::with('order')->get();
         $json['kode']=200;
 
         return response()->json($json);
@@ -36,9 +36,9 @@ class MejaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-         $this->validate($request,[
+         $this->validate($req,[
              'nama'=>['required'],
              'kapasistas'=>['required']
          ]);
@@ -49,7 +49,9 @@ class MejaController extends Controller
          $meja->save();
 
          $json['pesan']="meja berhasil ditambahkan";
+         $json['kode']=200;
 
+         return response()->json($json);
     }
 
     /**
@@ -84,8 +86,9 @@ class MejaController extends Controller
      * @param  \App\Meja  $meja
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Meja $meja)
+    public function update(Request $req, Meja $meja)
     {
+        $meja->nama=$req->nama;
         $meja->kapasistas=$req->kapasistas;
         $meja->save();
 
@@ -110,6 +113,6 @@ class MejaController extends Controller
          $json['kode']=200;
 
          return response()->json($json);
-         
+
     }
 }

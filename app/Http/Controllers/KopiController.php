@@ -90,6 +90,46 @@ class KopiController extends Controller
 
          return response()->json($json);
     }
+    public function show_keluar(Keluar_Kopi $kopi)
+    {
+        $json['data']=$kopi->load('kopi');
+        $json['kode']=200;
+
+        return response()->json($json);
+    }
+    public function show_masuk(Masuk_Kopi $masuk)
+    {
+        $json['data']=$masuk->load('kopi');
+        $json['kode']=200;
+
+        return response()->json($json);
+    }
+
+    public function destroy_in(Masuk_Kopi $kopi)
+    {
+        $kopi->kopi->stok=$kopi->kopi->stok-$kopi->jumlah;
+        $kopi->kopi->save();
+
+        $kopi->delete();
+
+        $json['pesan']="Kopi berhasil di hapus";
+        $json['kode']=200;
+
+        return response()->json($json);
+    }
+    public function destroy_out(Keluar_Kopi $kopi)
+    {
+
+        $kopi->kopi->stok=$kopi->kopi->stok+$kopi->jumlah;
+        $kopi->kopi->save();
+
+        $kopi->delete();
+
+        $json['pesan']="Kopi berhasil di hapus";
+        $json['kode']=200;
+
+        return response()->json($json);
+    }
 
     public function show(Kopi $kopi)
     {
@@ -98,11 +138,25 @@ class KopiController extends Controller
 
         return response()->json($json);
     }
+    public function update(Kopi $kopi,Request $req)
+    {
+        $kopi->asal=$req->asal;
+        $kopi->jenis=$req->jenis;
+        $kopi->save();
+
+        $json['pesan']='Kopi berhasil diganti';
+        $json['kode']=200;
+
+        return response()->json($json);
+        
+    }
     public function destroy(Kopi $kopi)
     {
         $kopi->delete();
 
         $json['pesan']="Data Kopi sudah dihapus";
         $json['kode']=200;
+
+        return response()->json($json);
     }
 }
