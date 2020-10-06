@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/gudang/kopi/{id}','AdminFrontController@detail_kopi');
     Route::get('/meja','AdminFrontController@meja');
     Route::get('/menu','AdminFrontController@menu');
+    Route::get('/order','AdminFrontController@order');
     
 
 });

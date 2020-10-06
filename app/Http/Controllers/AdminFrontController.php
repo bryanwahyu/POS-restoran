@@ -38,4 +38,8 @@ class AdminFrontController extends Controller
     {
         return view('admin.menu');
     }
+    public function order()
+    {
+        return view('admin.order');
+    }
 }
