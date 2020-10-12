@@ -29,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('kasir/index')}}">
         <div class="sidebar-brand-icon ">
           <img src="{{asset('img/logo.png')}}">
         </div>
@@ -231,7 +231,7 @@
                 <div class="navbar-collapse collapse" id="collapsingNavbar">
               <ul class="navbar-nav">
                   <li class="nav-item mynav active">
-                      <a class="nav-link nav-link2" #href="#"><i class="fa fa-cutlery" style="padding-right: 5px;"></i>Menu<span class="sr-only">Menu</span></a>
+                      <a class="nav-link nav-link2" href="{{url('kasir/menu')}}"><i class="fa fa-cutlery" style="padding-right: 5px;"></i>Menu<span class="sr-only">Menu</span></a>
                   </li>
                   <li class="nav-item mynav">
                       <a class="nav-link nav-link2" href="#"><i class="fa fa-user" style="padding-right: 5px;" aria-hidden="true"></i>Member</a>

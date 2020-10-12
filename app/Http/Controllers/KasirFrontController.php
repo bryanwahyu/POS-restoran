@@ -10,4 +10,8 @@ class KasirFrontController extends Controller
     {
         return view('kasir.index');
     }
+    public function menu()
+    {
+        return view('kasir.menu');
+    }
 }

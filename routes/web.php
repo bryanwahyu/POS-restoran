@@ -29,4 +29,5 @@ Route::group(['prefix' => 'admin'], function () {
 });
 Route::group(['prefix' => 'kasir'], function () {
  Route::get('/index','KasirFrontController@index');
+ Route::get('/menu','KasirFrontController@menu');
 });
