@@ -26,199 +26,13 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('kasir/index')}}">
-        <div class="sidebar-brand-icon ">
-          <img src="{{asset('img/logo.png')}}">
-        </div>
-        <div class="sidebar-brand-text mx-3">Kopiin Aja</div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-       <div class="row no-gutters align-items-center row-side">
-        <div class="col mr-2">
-          <div class="h5 mb-0 font-weight-bold" style="padding-top: 4px; padding-left: 5px; ">Resi</div>
-           </div>
-             <div class="col ml-2 clp">
-              <button type="button" class="btn btn-secondary">Collapse All</button>
-              <i class="fa fa-external-link" style="color: #40dbcc;" aria-hidden="true"></i>
-         </div>
-       </div>
-
-      <!-- Menu Coffe -->
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="{{asset('img/kopi.png')}}" style="height: 80px; width: 100px; border-radius: 2px;" class="card-img" alt="gambar" height="100%">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body kartu">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="h6 mb-0 font-weight-bold">Kopi Hitam</div>
-                </div>
-                  <div class="col-auto">
-                   <i class="font-weight-bold text-success" style="background-color: #83ff8330; border-radius: 4px;">#1</i>
-                   </div>
-                   </div>
-                <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="h6 mb-0 font-weight-bold">L</div>
-                   </div>
-                    <div class="col-auto">
-                   <i class="font-weight-bold text-gray-500">$4</i>
-                   </div>
-                   </div>
-                  <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Setengah Gula</div>
-                   </div>
-                    <div class="col-auto">
-                   <i class="font-weight-bold text-gray-500">$1</i>
-                   </div>
-                   </div>
-                 <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Diskon</div>
-                   </div>
-                    <div class="col-auto">
-                   <i class="font-weight-bold text-gray-500">-$3</i>
-                   </div>
-                   </div>
-                  <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Total : 1</div>
-                  <hr>
-                  <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Harga</div>
-                   </div>
-                    <div class="col-auto">
-                   <i class="font-weight-bold text-gray-500">$2</i>
-                   </div>
-                   </div>
-                   </div>
-                 </div>
-              </div>
-            </div>
-
-
-      <!-- Menu Bubble -->
-      <div class="card mb-3" style="max-width: 540px;">
-          <hr>
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="img/bubble.png" style="height: 80px; width: 100px; border-radius: 2px;" class="card-img" alt="gambar" height="100%">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body kartu">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="h6 mb-0 font-weight-bold">Bubble</div>
-                </div>
-                  <div class="col-auto">
-                   <i class="font-weight-bold text-success" style="background-color: #83ff8330; border-radius: 4px;">#2</i>
-                   </div>
-                   </div>
-                <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="h6 mb-0 font-weight-bold">L</div>
-                   </div>
-                    <div class="col-auto">
-                   <i class="font-weight-bold text-gray-500">$5</i>
-                   </div>
-                   </div>
-                  <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Topping Oreo</div>
-                   </div>
-                    <div class="col-auto">
-                   <i class="font-weight-bold text-gray-500">$2</i>
-                   </div>
-                   </div>
-                 <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Free Sticker</div>
-                   </div>
-                   </div>
-                  <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Total : 1</div>
-                  <hr>
-                  <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Harga</div>
-                   </div>
-                    <div class="col-auto">
-                   <i class="font-weight-bold text-gray-500">$7</i>
-                   </div>
-                   </div>
-                   </div>
-                 </div>
-              </div>
-            </div>
-
-      <!-- Menu Puding -->
-      <div class="card mb-3" style="max-width: 540px;">
-          <hr>
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="img/puding.png" style="height: 80px; width: 100px; border-radius: 2px;" class="card-img" alt="gambar" height="100%">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body kartu">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="h6 mb-0 font-weight-bold">Puding</div>
-                </div>
-                  <div class="col-auto">
-                   <i class="font-weight-bold text-success" style="background-color: #83ff8330; border-radius: 4px;">#2</i>
-                   </div>
-                   </div>
-                <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="h6 mb-0 font-weight-bold">L</div>
-                   </div>
-                    <div class="col-auto">
-                   <i class="font-weight-bold text-gray-500">$3</i>
-                   </div>
-                   </div>
-                  <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Topping Vanilla</div>
-                   </div>
-                    <div class="col-auto">
-                   <i class="font-weight-bold text-gray-500">$1</i>
-                   </div>
-                   </div>
-                 <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Free Strawberry</div>
-                   </div>
-                   </div>
-                  <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Total : 1</div>
-                  <hr>
-                  <div class="row no-gutters align-items-center">
-                 <div class="col mr-2">
-                  <div class="p mb-0 ">Harga</div>
-                   </div>
-                    <div class="col-auto">
-                   <i class="font-weight-bold text-gray-500">$4</i>
-                   </div>
-                   </div>
-                   </div>
-                 </div>
-              </div>
-
-
-    </ul>
     <!-- End of Sidebar -->
+    <script>
+        let url="{{url('kasir')}}"
+        let api="{{url('api')}}"
+        let link="{{url('')}}"
+    </script>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -228,13 +42,19 @@
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <a class="navbar-brand d-flex align-items-center justify-content-center" href="{{url('kasir/index')}}">
+                <div class="navbar-brand-icon ">
+                  <img src="{{asset('img/logo.png')}}">
+                </div>
+                <div class="navbar-brand-text mx-3">Kopiin Aja</div>
+            </a>
                 <div class="navbar-collapse collapse" id="collapsingNavbar">
               <ul class="navbar-nav">
-                  <li class="nav-item mynav active">
+                  <li class="nav-item mynav">
                       <a class="nav-link nav-link2" href="{{url('kasir/menu')}}"><i class="fa fa-cutlery" style="padding-right: 5px;"></i>Menu<span class="sr-only">Menu</span></a>
                   </li>
                   <li class="nav-item mynav">
-                      <a class="nav-link nav-link2" href="#"><i class="fa fa-user" style="padding-right: 5px;" aria-hidden="true"></i>Member</a>
+                      <a class="nav-link nav-link2" href="{{url('kasir/meja')}}"><i class="fa fa-user" style="padding-right: 5px;" aria-hidden="true"></i>Meja</a>
                   </li>
                   <li class="nav-item mynav">
                       <a class="nav-link nav-link2" href="#"><i class="fa fa-history" style="padding-right: 5px;" aria-hidden="true"></i>History</a>
@@ -414,230 +234,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
             @yield('content')
-          <!-- Content Row -->
-          <div class="row">
 
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-              <!-- Member card -->
-              <div class="card shadow mb-4">
-                <div class="col-xs-12" style="padding: 20px;">
-                    <div class="well well-sm">
-                      <div class="row" style="padding-top: 15px;">
-                          <div class="col-sm-6 col-md-2">
-                              <img src="img/users.png" alt="" class="img-rounded img-responsive"/>
-                          </div>
-                          <div class="col-sm-6 col-md-8">
-                              <h5><strong>Mamank Kesbor</strong></h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Gold Card Member</h6>
-                              <h6 class="card-subtitle mb-2 text-muted">+62 094029409</h6>
-                          </div>
-                      </div>
-                      <div class="row no-gutters align-items-center" style="padding-top: 10px;">
-                       <div class="col mr-2">
-                        <div class="h6 mb-0 font-weight-bold">Payment Method</div>
-                         </div>
-                          <div class="col-auto">
-                         <i class="font-weight-bold text-gray-500">Latest Delivered Location</i>
-                         </div>
-                         </div>
-                        </div>
-                        <div class="row no-gutters align-items-center">
-                       <div class="col mr-2">
-                        <div class="p mb-0 font-weight-200">Credit Card</div>
-                         </div>
-                          <div class="col-auto">
-                         <button type="button" class="btn btn-secondary">Jl. Anjay Mabar</button>
-                         </div>
-                         </div>
-
-                          <div class="row no-gutters align-items-center">
-                       <div class="col mr-2">
-                        <div class="p mb-0 font-weight-200"></div>
-                         </div>
-                          <div class="col-auto">
-                         <button type="button" class="btn btn-secondary">Jl. Anjay Mabar</button>
-                         </div>
-                         </div>
-
-                         <div class="row no-gutters align-items-center">
-                       <div class="col mr-2">
-                        <div class="h6 mb-0 font-weight-bold">Receipt Type</div>
-                         </div>
-                          <div class="col-auto">
-                         <button type="button" class="btn btn-secondary">Jl. Mabar skuyy</button>
-                         </div>
-                         </div>
-                        <div class="p mb-0 font-weight-200">Print Receipt</div>
-                         </div>
-                        </div>
-                        </div>
-
-
-
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-
-             <!-- Member Discount-->
-             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                            <ul class="nav nav-tabs card-header-tabs pull-right mynav"  id="myTab" role="tablist">
-                      <li class="nav-item">
-                          <a class="nav-link mynav"><i class="fa fa-usd" aria-hidden="true"></i>Discount Amount</a>
-                      </li>
-                      <li class="nav-item ml-auto">
-                          <a class="nav-link mynav active"><i class="fa fa-user" aria-hidden="true"></i>Member Discount</a>
-                      </li>
-                  </ul>
-                </div>
-                <div class="card-body" style="height: 70%;">
-                 <div class="money2">
-                  <i class="fa fa-money " style="font-size:80px;color:#cacbd7;padding-right: 10px; padding-bottom: 30px;">10%</i>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-lg-6">
-
-
-             <!-- Delivery-->
-             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                            <ul class="nav nav-tabs card-header-tabs pull-right mynav"  id="myTab" role="tablist">
-                      <li class="nav-item">
-                          <a class="nav-link mynav"><i class="fa fa-cutlery" aria-hidden="true"></i>Dine In</a>
-                      </li>
-                      <li class="nav-item ml-auto">
-                          <a class="nav-link mynav"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Take Out</a>
-                      </li>
-                      <li class="nav-item ml-auto">
-                          <a class="nav-link mynav active"><i class="fa fa-motorcycle" aria-hidden="true"></i>Delivery</a>
-                      </li>
-                  </ul>
-                </div>
-                <div class="card-body" style="height: 70%;">
-                  <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                    <table class="table table-bordered table-striped mb-0" style="height: 173px;">
-                      <thead>
-                        <tr>
-                          <th scope="col">Name</th>
-                          <th scope="col">Tel</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Jhony Ahmad</td>
-                          <td>+62 89689657</td>
-                        </tr>
-                      </tbody>
-
-                      <thead>
-                        <tr>
-                          <th scope="col">Street</th>
-                          <th scope="col">City/Town</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Jl. Kedamaian 26</td>
-                          <td>Magelang</td>
-                        </tr>
-                      </tbody>
-
-                      <thead>
-                        <tr>
-                          <th scope="col">State</th>
-                          <th scope="col">Zip Code</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>IDN</td>
-                          <td>12988</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-lg-6">
-
-
-            <!-- Cash -->
-             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                            <ul class="nav nav-tabs card-header-tabs pull-right mynav"  id="myTab" role="tablist">
-                      <li class="nav-item">
-                          <a class="nav-link mynav active"><i class="fa fa-money" aria-hidden="true"></i>Cash</a>
-                      </li>
-                      <li class="nav-item ml-auto">
-                          <a class="nav-link mynav"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>Credit Card</a>
-                      </li>
-                      <li class="nav-item ml-auto">
-                          <a class="nav-link mynav"><i class="fa fa-credit-card" aria-hidden="true"></i>Easy Card</a>
-                      </li>
-                  </ul>
-                </div>
-                <div class="card-body" style="height: 70%;">
-                 <div class="money">
-                  <i class="fa fa-bitcoin" style="font-size:50px;color:#cacbd7;padding-right: 10px;"></i>
-                  <i class="fa fa-cny" style="font-size:50px;color:#cacbd7;padding-right: 10px;"></i>
-                  <i class="fa fa-dollar" style="font-size:50px;color:#40dbcc;padding-right: 10px;"></i>
-                  <i class="fa fa-jpy" style="font-size:50px;color:#cacbd7;padding-right: 10px;"></i>
-                  <form style="padding-top: 50px;">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Enter amount here" id="text">
-                    </div>
-                  </form>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col">
-
-
-            <!-- Print Receipt -->
-             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                            <ul class="nav nav-tabs card-header-tabs pull-right mynav"  id="myTab" role="tablist">
-                      <li class="nav-item">
-                          <a class="nav-link mynav active">Receipt</a>
-                      </li>
-                      <li class="nav-item ">
-                          <a class="nav-link mynav">Scan Barcode</a>
-                      </li>
-                      <li class="nav-item ">
-                          <a class="nav-link mynav">Vat Number</a>
-                      </li>
-                  </ul>
-                </div>
-                <div class="card-body" style="height: 70%;">
-                 <div class="money2">
-                  <i class="fa fa-print" style="font-size:80px;color:#cacbd7;padding-right: 10px;"> <p class="pr ml-auto">(Print Receipt Details)</p></i>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-
-              </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
         <!-- /.container-fluid -->
 
       </div>
@@ -722,7 +319,27 @@
   <!-- Page level custom scripts -->
  <!-- Custom Icons -->
   <script src="https://kit.fontawesome.com/8e23d86a11.js" crossorigin="anonymous"></script>
-
+  <script>
+      $.ajax({
+          method:'get',
+          url:api+'/v1/auth',
+          headers:{
+              Authorization:'Bearer '+localStorage.getItem('token'),
+              Accept:'Application/json'
+          },
+          success:res=>{
+              console.log(res)
+          },
+          error:res=>{
+            localStorage.removeItem('token')
+            window.location.replace(link)
+          }
+      })
+      function logout(){
+          localStorage.removeItem('token')
+          window.location.replace(link)
+      }
+  </script>
 </body>
 
 </html>
