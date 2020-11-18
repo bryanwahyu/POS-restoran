@@ -19,7 +19,14 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Baso Tahu</h5>
-                    <input type="number" id="quantity" name="quantity" min="1" max="100">
+                    <div class='ctrl d-flex justify-content-center'>
+                        <div class='ctrl__button ctrl__button--decrement'>&ndash;</div>
+                        <div class='ctrl__counter'>
+                            <input class='ctrl__counter-input' maxlength='10' type='text' value='0'>
+                            <div class='ctrl__counter-num'>0</div>
+                        </div>
+                        <div class='ctrl__button ctrl__button--increment'>+</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,7 +39,14 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Cuanki</h5>
-                    <input type="number" id="quantity" name="quantity" min="1" max="100">
+                    <div class='ctrl d-flex justify-content-center'>
+                        <div class='ctrl__button ctrl__button--decrement'>&ndash;</div>
+                        <div class='ctrl__counter'>
+                            <input class='ctrl__counter-input' maxlength='10' type='text' value='0'>
+                            <div class='ctrl__counter-num'>0</div>
+                        </div>
+                        <div class='ctrl__button ctrl__button--increment'>+</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,7 +59,14 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Nasi Goreng</h5>
-                    <input type="number" id="quantity" name="quantity" min="1" max="100">
+                    <div class='ctrl d-flex justify-content-center'>
+                        <div class='ctrl__button ctrl__button--decrement'>&ndash;</div>
+                        <div class='ctrl__counter'>
+                            <input class='ctrl__counter-input' maxlength='10' type='text' value='0'>
+                            <div class='ctrl__counter-num'>0</div>
+                        </div>
+                        <div class='ctrl__button ctrl__button--increment'>+</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,7 +79,14 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Mie Tektek</h5>
-                    <input type="number" id="quantity" name="quantity" min="1" max="100">
+                                        <div class='ctrl d-flex justify-content-center'>
+                        <div class='ctrl__button ctrl__button--decrement'>&ndash;</div>
+                        <div class='ctrl__counter'>
+                            <input class='ctrl__counter-input' maxlength='10' type='text' value='0'>
+                            <div class='ctrl__counter-num'>0</div>
+                        </div>
+                        <div class='ctrl__button ctrl__button--increment'>+</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -76,7 +104,14 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Milkshake</h5>
-                    <input type="number" id="quantity" name="quantity" min="1" max="100">
+                                        <div class='ctrl d-flex justify-content-center'>
+                        <div class='ctrl__button ctrl__button--decrement'>&ndash;</div>
+                        <div class='ctrl__counter'>
+                            <input class='ctrl__counter-input' maxlength='10' type='text' value='0'>
+                            <div class='ctrl__counter-num'>0</div>
+                        </div>
+                        <div class='ctrl__button ctrl__button--increment'>+</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -89,7 +124,14 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Thai Tea</h5>
-                    <input type="number" id="quantity" name="quantity" min="1" max="100">
+                                        <div class='ctrl d-flex justify-content-center'>
+                        <div class='ctrl__button ctrl__button--decrement'>&ndash;</div>
+                        <div class='ctrl__counter'>
+                            <input class='ctrl__counter-input' maxlength='10' type='text' value='0'>
+                            <div class='ctrl__counter-num'>0</div>
+                        </div>
+                        <div class='ctrl__button ctrl__button--increment'>+</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,7 +144,14 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Es Kopi</h5>
-                    <input type="number" id="quantity" name="quantity" min="1" max="100">
+                                        <div class='ctrl d-flex justify-content-center'>
+                        <div class='ctrl__button ctrl__button--decrement'>&ndash;</div>
+                        <div class='ctrl__counter'>
+                            <input class='ctrl__counter-input' maxlength='10' type='text' value='0'>
+                            <div class='ctrl__counter-num'>0</div>
+                        </div>
+                        <div class='ctrl__button ctrl__button--increment'>+</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,7 +164,14 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Es Campur</h5>
-                    <input type="number" id="quantity" name="quantity" min="1" max="100">
+                                        <div class='ctrl d-flex justify-content-center'>
+                        <div class='ctrl__button ctrl__button--decrement'>&ndash;</div>
+                        <div class='ctrl__counter'>
+                            <input class='ctrl__counter-input' maxlength='10' type='text' value='0'>
+                            <div class='ctrl__counter-num'>0</div>
+                        </div>
+                        <div class='ctrl__button ctrl__button--increment'>+</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -153,6 +209,7 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('qty.js') }}"></script>
     <script>
         function ordermodal() {
             $("#order-modal").modal('show')
