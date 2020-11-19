@@ -8,5 +8,9 @@ class Menu extends Model
 {
     protected  $guarded=[];
 
-    
+    public function detail()
+    {
+        return $this->hasMany(Detail::class);
+    }
+
 }

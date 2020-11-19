@@ -43,6 +43,7 @@ class MenuController extends Controller
         $menu->foto=$req->foto;
         $menu->nama=$req->nama;
         $menu->status='1';
+        $menu->jenis=$req->jenis;
         $menu->save();
 
         $json['pesan']="Menu berhasil ditambahkan";

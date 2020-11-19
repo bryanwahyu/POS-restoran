@@ -43,7 +43,15 @@
                         <input type="text" class="form-control" id="add-nama">
                     </div>
                 </div>
-
+                <div class="form-group form-row">
+                    <label class="col-3">Jenis</label>
+                    <div class="col-8">
+                        <select  id="add-jenis" class="form-control">
+                            <option value="Makanan">Makanan</option>
+                            <option value="Minuman">Minuman</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="form-group form-row">
                     <label class="col-3"> Foto:</label>
                     <div class="col-8">
@@ -83,7 +91,15 @@
                         <input type="text" class="form-control" id="edit-nama">
                     </div>
                 </div>
-
+                <div class="form-group form-row">
+                    <label class="col-3">Jenis</label>
+                    <div class="col-8">
+                        <select  id="edit-jenis" class="form-control">
+                            <option value="Makanan">Makanan</option>
+                            <option value="Minuman">Minuman</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="form-group form-row">
                     <label class="col-3"> Foto:</label>
                     <div class="col-8">
@@ -157,7 +173,9 @@
           let data={}
           data.nama=$('#add-nama').val()
           data.harga=$('#add-harga').val()
+          data.jenis=$('#add-jenis').val()
           data.foto=addfoto
+
           $.ajax({
               method:"post",
               url:api+'/v1/menu',
@@ -190,7 +208,7 @@
                   $('#edit-nama').val(res.data.nama)
                   $('#edit-harga').val(res.data.harga)
                   $('#edit-status').val(res.data.status)
-
+                  $('#edit-jenis').val(res.data.jenis)
               }
           })
       }
@@ -201,7 +219,9 @@
             data.nama=$('#edit-nama').val()
             data.harga=$('#edit-harga').val()
             data.status=$('#edit-status').val()
+            data.jenis=$('#edit-jenis').val()
             data.foto=editfoto
+
             $.ajax({
                 method:'put',
                 url:api+'/v1/menu/'+id,

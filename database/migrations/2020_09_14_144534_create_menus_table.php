@@ -19,6 +19,7 @@ class CreateMenusTable extends Migration
             $table->bigInteger('harga');
             $table->longtext('foto');
             $table->tinyInteger('status');
+            $table->stirng('jenis');
             $table->timestamps();
         });
     }

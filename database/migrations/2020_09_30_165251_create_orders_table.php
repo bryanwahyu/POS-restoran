@@ -15,11 +15,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('kode')->unique();
             $table->bigInteger('meja_id')->unsigned();
             $table->foreign('meja_id')->references('id')->on('mejas')->onDelete('cascade');
             $table->string('nama')->default('waitress');
-            $table->integer('status');
-            $table->bigInteger('Total');
+            $table->integer('status')->default('0');
+            $table->bigInteger('total')->detault('0');
             $table->timestamps();
         });
     }
