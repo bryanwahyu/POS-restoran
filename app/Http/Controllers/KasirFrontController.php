@@ -14,4 +14,9 @@ class KasirFrontController extends Controller
     {
         return view('kasir.menu');
     }
+    public function meja()
+    {
+        return view('kasir.meja');
+    }
+
 }

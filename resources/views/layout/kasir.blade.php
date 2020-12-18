@@ -14,7 +14,22 @@
   <!-- Custom fonts for this template-->
   <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
+  <!-- Core plugin JavaScript-->
+  <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+
+  <!-- Page level plugins -->
+  <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
+
+  <!-- Page level custom scripts -->
+ <!-- Custom Icons -->
+  <script src="https://kit.fontawesome.com/8e23d86a11.js" crossorigin="anonymous"></script>
+  
   <!-- Custom styles for this template-->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
@@ -239,38 +254,6 @@
 
       </div>
       <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <div class="footer shadow-sm2">
-        <footer class="sticky-footer">
-          <div class="container">
-            <div class="row no-gutters align-items-center">
-              <button type="button" class="btn btn-light tombol-putih">Back to <br> Order</button>
-                 <div style="padding-right: 10px;">
-                  <i class="font-weight-400 text-success" style="color: #5acaa1c7;"> <div class="p mb-7 font-footer">Total:</div></i>
-                  <i class="font-weight-400 text-success" style="color: #5acaa1c7; font-size: 24px;"><p class="p mb-7 subfont-footer">IDR200</i>
-                   </div>
-                    <div class="col-auto">
-                    <div class="col mr-2" style="padding-left: 50px;">
-                      <i class="font-weight-400 text-success" style="color: grey;"> <div class="p mb-7 font-footer">Payment:</div></i>
-                      <i class="font-weight-400 text-success" style="color: grey; font-size: 24px;"><p class="p mb-7 subfont-footer">IDR400</p></i>
-                   </div>
-                 </div>
-                 <div class="col-auto">
-                    <div class="col mr-2" style="padding-left: 50px;">
-                      <i class="font-weight-400 text-success" style="color: grey;"> <div class="p mb-7 font-footer">Change:</div></i>
-                      <i class="font-weight-400 text-success" style="color: grey; font-size: 24px;"><p class="p mb-7 subfont-footer">IDR200</p></i>
-                   </div>
-                 </div>
-                 <div class="ml-auto">
-                  <button type="button" class="btn btn-light tombol-putih btn-lg">Cancel Order</button>
-                  <button type="button" class="btn btn-primary btn-lg">Checkout</button>
-                 </div>
-               </div>
-            </div>
-          </div>
-        </footer>
-      </div>
       <!-- End of Footer -->
 
     </div>
@@ -304,21 +287,6 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
-
-  <!-- Page level plugins -->
-  <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
-
-  <!-- Page level custom scripts -->
- <!-- Custom Icons -->
-  <script src="https://kit.fontawesome.com/8e23d86a11.js" crossorigin="anonymous"></script>
   <script>
       $.ajax({
           method:'get',

@@ -24,10 +24,11 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/meja','AdminFrontController@meja');
     Route::get('/menu','AdminFrontController@menu');
     Route::get('/order','AdminFrontController@order');
-    
+
 
 });
 Route::group(['prefix' => 'kasir'], function () {
  Route::get('/index','KasirFrontController@index');
  Route::get('/menu','KasirFrontController@menu');
+ Route::get('/meja','KasirFrontController@meja');
 });

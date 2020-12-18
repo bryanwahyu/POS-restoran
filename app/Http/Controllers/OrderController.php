@@ -42,7 +42,29 @@ class OrderController extends Controller
     {
         $detail=new Detail_Order;
         $detail->menu_id=$req->menu_id;
-        
+        $detail->jumlah=$req->jumlah;
+        $detail->order_id=$order->id;
+        $detail->save();
+
+        $order->total= $order->total+$detail->menu->harga*$detail->jumlah;
+        $order->save();
+
+        $json['kode']=200;
+
+        return response()->json($json);
 
     }
+    
+    public function remove_menu(Detail_order $det)
+    {
+        $det->order->total=$det->order->total-$det->menu->harga*$det->jumlah;
+        $det->order->save();
+
+        $det->delete();
+
+        $json['kode']=200;
+
+        return response()->json($json);
+    }
+
 }
