@@ -12,26 +12,54 @@
   <title>Login to POS</title>
 
   <!-- Custom fonts for this template-->
-  <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css"> -->
+<!--   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet"> -->
 
   <!-- Custom styles for this template-->
-  <link href="{{asset('css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('css/login.css')}}" rel="stylesheet">
 
 </head>
 
-<body style="background-color: #40dbcc;">
+<body>
+  <div class="login_form">
+    <div class="details">
+      <div class="welcome">Welcome</div>
+      <form onsubmit=" return login()">
+        <div class="wrap">
+          <label>Username</label>
+          <input type="Text" class="input" id="username" placeholder="Enter username">
+          </div>
+        <div class="wrap">
+          <label>Password</label>
+          <input type="password" class="input" id="password" placeholder="Password">
+          </div>
+        <div class="wrap">
+           <div id="loader" class="box fade">
+            <span class="flashing-circle"></span>
+            <span class="flashing-circle"></span>
+            <span class="flashing-circle"></span>
+          </div>
+          </div>
+        <button type="submit" class="button"><h1 class="sign">Sign in!</h1></button>
+      </form>
+    </div>
+      <img class="logo" src="{{asset('img/logologin.png')}}">
+    <div class="details-two">
+     <h1 class="back">Welcome back!</h1>
+      <p class="log">Log in and use the apps.</p>
+    </div>
+    
+  </div>
+ 
+  <!-- <div class="container">
 
-  <div class="container">
-
-    <!-- Outer Row -->
     <div class="row justify-content-center">
 
       <div class="col-xl-10 col-lg-12 col-md-9">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
             <div class="row">
               <div class="col-lg-6 d-none d-lg-block bg-login-image">
                 <img src="{{asset('img/logologin.png')}}">
@@ -64,7 +92,7 @@
 
     </div>
 
-  </div>
+  </div> -->
 
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
@@ -80,12 +108,11 @@
       let api="{{url('api')}}"
       let url="{{url('')}}"
 
-
       function login(e){
         let data={}
         data.username=$('#username').val()
         data.password=$('#password').val()
-
+        $('#loader').addClass('show');
         $.ajax({
             method:'post',
             url:api+'/v1/login',
@@ -95,9 +122,12 @@
             data:JSON.stringify(data),
             success:res=>{
                 console.log(res)
-                alert(res.pesan)
+                $("#loader").removeClass('show');
                 localStorage.setItem('token',res.token)
-                if(res.data.role=="admin"){
+                if(res.kode == 203){
+                  alert(res.pesan)
+                }
+                else if(res.data.role=="admin"){
                     window.location.replace(url+'/admin/index')
                 }else if(res.data.role=="kasir")
                 {
