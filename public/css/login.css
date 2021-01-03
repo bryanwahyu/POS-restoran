@@ -58,7 +58,7 @@ body {
 .flashing-circle {
   display: inline-block;
   background-color: var(--white);
-  border: 0.25rem solid var(--light-pink);
+  border: 0.25rem solid var(--colour-one);
   border-radius: 100%;
   margin: 0.1rem;
   width: 1rem;
@@ -77,11 +77,11 @@ body {
 @keyframes flashing-animation {
   0% {
     background-color: var(--white);
-    border-color: var(--light-pink);
+    border-color: #c87137;
   }
   50% {
     background-color: var(--snow);
-    border-color: var(--hot-pink);
+    border-color: var(--colour-one);
   }
 }
 
