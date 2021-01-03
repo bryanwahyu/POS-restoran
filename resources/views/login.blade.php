@@ -107,7 +107,7 @@
   <script>
       let api="{{url('api')}}"
       let url="{{url('')}}"
-$('#loader').addClass('show');
+
       function login(e){
         let data={}
         data.username=$('#username').val()
