@@ -8,7 +8,9 @@ class AdminFrontController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $data['title'] = 'Home';
+        $data['subTitle'] = 'Home';
+        return view('admin.index',$data);
     }
     public function user()
     {
@@ -36,7 +38,9 @@ class AdminFrontController extends Controller
     }
     public function menu()
     {
-        return view('admin.menu');
+        $data['title'] = 'Menu';
+        $data['subTitle'] = 'List Menu';
+        return view('admin.menu',$data);
     }
     public function order()
     {

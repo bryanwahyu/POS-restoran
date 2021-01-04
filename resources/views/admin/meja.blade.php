@@ -9,7 +9,7 @@
     <li class="breadcrumb-active">Meja</li>
 </ol>
 <div class="row">
-    <div class="col-12 mb-3">
+    <div class="col-12 mt-3 mb-3">
      <button  onclick="tambahmodal()" class="btn btn-primary">Tambah</button>
     </div>
     <div class="col-12">
