@@ -146,23 +146,25 @@
                 Accept:'application/json'
             },
             success:res=>{
+                var numFormat   = $.fn.dataTable.render.number('\,', '.', 0).display;
                 let data = $('#data').DataTable();
 
                 res.data.forEach(a=>{
-                    let action='<div class="btn-group">'
-                    action=action+'<button class="btn btn-primary" onclick="detail('+a.id+')"><i class="fa fa-eye"></i></button>'
-                    action=action+'<button class="btn btn-danger" onclick="hapus('+a.id+')"><i class="fa fa-trash"></i></button>'
-                    action=action+'</div>'
-                    foto='<img src="'+a.foto+'" width="150px" height="150px">'
-                    let status
+                    let action='<div class="btn-group">';
+                    action = action+'<button class="btn btn-primary" onclick="detail('+a.id+')"><i class="fa fa-eye"></i></button>';
+                    action = action+'<button class="btn btn-danger" onclick="hapus('+a.id+')"><i class="fa fa-trash"></i></button>';
+                    action = action+'</div>';
+                    harga  = numFormat(a.harga);
+                    foto   = '<img src="'+a.foto+'" width="150px" height="150px">';
+                    let status;
                     if(a.status==0){
                         status="kosong";
                     }else{
-                        status="Ada"
+                        status="Ada";
                     }
                     data.row.add([
                         a.nama,
-                        a.harga,
+                        harga,
                         foto,
                         status,
                         action
