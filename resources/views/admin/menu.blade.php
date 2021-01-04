@@ -1,7 +1,12 @@
 @extends('layout.admin')
 @section('isi')
-<script src="{{asset('datatable.min.js')}}"></script>
-<link rel="stylesheet" href="{{asset('datatable.min.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css')}}">
+
+<script src="{{asset('vendor/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+
 @endsection
 
 @section('content')
@@ -14,7 +19,7 @@
     </div>
     <div class="col-12">
         <div class="table-responsive">
-            <table id="data" class="table table-stripped">
+              <table class="table align-items-center table-flush" id="data">
                 <thead>
                     <th>Nama</th>
                     <th>Harga</th>
