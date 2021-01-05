@@ -19,7 +19,7 @@
     </div>
     <div class="col-12">
         <div class="table-responsive">
-              <table class="table align-items-center table-flush" id="data">
+              <table class="table dataTable" id="data">
                 <thead>
                     <th>Nama</th>
                     <th>Harga</th>
@@ -136,6 +136,7 @@
   </div>
 
 <script>
+    $('#data').DataTable();
     let addfoto='';
     let editfoto='';
         $.ajax({
@@ -146,9 +147,9 @@
                 Accept:'application/json'
             },
             success:res=>{
-                var numFormat   = $.fn.dataTable.render.number('\,', '.', 0).display;
-                let data = $('#data').DataTable();
 
+                let data = $('#data').DataTable();
+                var numFormat   = $.fn.dataTable.render.number('\,', '.', 0).display;
                 res.data.forEach(a=>{
                     let action='<div class="btn-group">';
                     action = action+'<button class="btn btn-primary" onclick="detail('+a.id+')"><i class="fa fa-eye"></i></button>';

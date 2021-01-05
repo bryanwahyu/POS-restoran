@@ -4,303 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POS</title>
-     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-     <link rel="stylesheet" href="{{asset('bootstrap.min.css')}}">
-	 <link rel="stylesheet" href="{{asset('vendor/nucleo/css/nucleo.css')}}" type="text/css">
-	 <link rel="stylesheet" href="{{asset('vendor/@fortawesome/fontawesome-free/css/all.min.css')}}" type="text/css">
-	 <link rel="stylesheet" href="{{asset('css/argon.css?v=1.2.0')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('vendor/iconfonts/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/css/vendor.bundle.base.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/css/vendor.bundle.addons.css')}}">
+    <link rel="stylesheet" href="{{asset('css/laystyle.css')}}">
+    <link rel="stylesheet" href="{{asset('css/destyle.css')}}">
     <script src="{{asset('vendor/jquery/dist/jquery.min.js')}}" charset="utf-8"></script>
-    <script src="{{asset('bootstrap.min.js')}}"></script>
-    <script src="{{asset('popper.min.js') }}"></script>
 @yield('isi')
-
+  <style>
+      ul.nav li a
+      {
+          text-decoration:none;
+      }
+      ul.nav li.active
+      {
+          background:#0228d6;
+          padding:2px 6px;
+      }
+</style>
 </head>
 <body>
-	<nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-    <div class="scrollbar-inner">
-      <!-- Brand -->
-      <div class="sidenav-header  align-items-center">
-        <a class="navbar-brand" href="javascript:void(0)">
-          <img src="{{asset('img/brand/blue.png')}}" class="navbar-brand-img" alt="...">
-        </a>
-      </div> 
-      <div class="navbar-inner">
-        <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Nav items -->
-          <ul class="navbar-nav">
+<div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+          <a class="navbar-brand brand-logo" href="index.html">
+            <img style="height: 75%;width: 100%;" src="{{asset('img/logo.png')}}" alt="logo" /> </a>
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+            <img src="{{asset('img/logo.png')}}" alt="logo" /> </a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
+              <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                <img class="img-xs rounded-circle" src="{{asset('img/users.png')}}" alt="Profile image"> </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                <div class="dropdown-header text-center">
+                  <img class="img-md rounded-circle" src="{{asset('img/users.png')}}" alt="Profile image">
+                  <p class="mb-1 mt-3 font-weight-semibold" id="nama-admin"></p>
+                </div>
+                <a class="dropdown-item">My Profile</a>
+                <a class="dropdown-item" onclick="logout()">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+             <script>
+                let url="{{url('admin')}}"
+                let api="{{url('api')}}"
+                let link="{{url('')}}"
+            </script>
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="profile-image">
+                  <img class="img-xs rounded-circle" src="{{asset('img/users.png')}}" alt="profile image">
+                  <div class="dot-indicator bg-success"></div>
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name" id="nama-admin"></p>
+                  <p class="designation">Premium user</p>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item nav-category">Main Menu</li>
             <li class="nav-item">
-              <a class="nav-link active" href="{{url('admin/index')}}">
-                <i class="ni ni-tv-2 text-primary"></i>
-                <span class="nav-link-text">Dashboard</span>
+              <a class="nav-link" href="{{url('admin/index')}}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item" id="menu">
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="menu-icon typcn typcn-coffee"></i>
+                <span class="menu-title">Gudang</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('admin/gudang/kopi')}}">Kopi</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('admin/gudang/stok')}}">F n B</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{{url('admin/menu')}}">
-                <i class="ni ni-bullet-list-67 text-default"></i>
-                <span class="nav-link-text">Menu</span>
+                <i class="menu-icon typcn typcn-shopping-bag"></i>
+                <span class="menu-title">Menu</span>
               </a>
             </li>
-            <li class="nav-item" id="meja">
+            <li class="nav-item">
               <a class="nav-link" href="{{url('admin/meja')}}">
-                <i class="ni ni-key-25 text-info"></i>
-                <span class="nav-link-text">Meja</span>
+                <i class="menu-icon typcn typcn-th-large-outline"></i>
+                <span class="menu-title">Meja</span>
               </a>
             </li>
-            <li class="nav-item" id="order">
+            <li class="nav-item">
               <a class="nav-link" href="{{url('admin/order')}}">
-                <i class="ni ni-circle-08 text-pink"></i>
-                <span class="nav-link-text">Order</span>
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">Order</span>
               </a>
             </li>
-            <li class="nav-item" id="profile">
-              <a class="nav-link" href="{{url('admin/user')}}">
-                <i class="ni ni-send text-dark"></i>
-                <span class="nav-link-text">Profile</span>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('admin/profile')}}">
+                <i class="menu-icon typcn typcn-user-outline"></i>
+                <span class="menu-title">Profile</span>
               </a>
             </li>
-            <li class="nav-item" id="profile">
-              <a class="nav-link" href="{{url('admin/gudang/kopi')}}">
-                <i class="ni ni-send text-dark"></i>
-                <span class="nav-link-text">Gudang Kopi</span>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="menu-icon typcn typcn-coffee"></i>
+                <span class="menu-title">Laporan</span>
+                <i class="menu-arrow"></i>
               </a>
-            </li>
-            <li class="nav-item" id="profile">
-              <a class="nav-link" href="{{url('/admin/gudang/stok')}}">
-                <i class="ni ni-send text-dark"></i>
-                <span class="nav-link-text">Gudang FnB</span>
-              </a>
-            </li>
-            <li class="nav-item" id="profile">
-              <a class="nav-link" href="{{url('admin/laporan/kopi')}}">
-                <i class="ni ni-send text-dark"></i>
-                <span class="nav-link-text">Keuangan</span>
-              </a>
-            </li>
-            <li class="nav-item" id="profile">
-              <a class="nav-link" href="{{url('/admin/laporan/stok')}}">
-                <i class="ni ni-send text-dark"></i>
-                <span class="nav-link-text">Stock</span>
-              </a>
-            </li>
-          </ul>
-          <!-- Divider -->
-          <hr class="my-3">
-          <!-- Heading -->
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!-- Main content -->
-  <div class="main-content" id="panel">
-    <!-- Topnav -->
-    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav align-items-center  ml-md-auto ">
-            <li class="nav-item d-xl-none">
-              <!-- Sidenav toggler -->
-              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item d-sm-none">
-              <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-                <i class="ni ni-zoom-split-in"></i>
-              </a>
-            </li>
-          </ul>
-          <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
-            <li class="nav-item dropdown">
-              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="media align-items-center">
-                  <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="{{asset('img/theme/team-4.jpg')}}">
-                  </span>
-                  <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold" id="nama-admin"></span>
-                  </div>
-                </div>
-              </a>
-              <div class="dropdown-menu  dropdown-menu-right ">
-                <div class="dropdown-header noti-title">
-                  <h6 class="text-overflow m-0">Welcome!</h6>
-                </div>
-               
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-settings-gear-65"></i>
-                  <span>Settings</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" onclick="logout()" class="dropdown-item">
-                  <i class="ni ni-user-run"></i>
-                  <span>Logout</span>
-                </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('admin/laporan/kopi')}}">Keuangan</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('admin/laporan/stok')}}">F n B</a>
+                  </li>
+                </ul>
               </div>
             </li>
           </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <!-- Page Title Header Starts-->
+            <div class="row page-title-header">
+              <div class="col-12">
+                <div class="page-header">
+                  <h4 class="page-title">@if(isset($title))
+                   {{ $title }}
+                  @else
+                    {{ Request::segment(2) }}
+                  @endif
+                </h4>
+                </div>
+              </div>
+            </div>
+            <!-- Page Title Header Ends-->
+            @yield('content')
+           
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+            <div class="container-fluid clearfix">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+            </div>
+          </footer>
+          <!-- partial -->
         </div>
+        <!-- main-panel ends -->
       </div>
-    </nav>
-    <!-- Header -->
-    <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">
-              	@if(isset($title))
-				 {{ $title }}
-				@else
-				  {{ Request::segment(2) }}
-				@endif</h6>
-              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                  	@if(isset($subTitle))
-				 		{{ $subTitle }}
-					@else
-				  		{{ Request::segment(2) }}
-					@endif</li>
-                </ol>
-              </nav>
-            </div>
-            <div class="col-lg-6 col-5 text-right">
-              <!-- <a href="#" class="btn btn-sm btn-neutral">New</a>
-              <a href="#" class="btn btn-sm btn-neutral">Filters</a> -->
-            </div>
-          </div>
-          <!-- Card stats -->
-          <div class="row">
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
-                      <span class="h2 font-weight-bold mb-0">350,897</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                        <i class="ni ni-active-40"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                      <span class="h2 font-weight-bold mb-0">2,356</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                        <i class="ni ni-chart-pie-35"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                      <span class="h2 font-weight-bold mb-0">924</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                        <i class="ni ni-money-coins"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                      <span class="h2 font-weight-bold mb-0">49,65%</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-                        <i class="ni ni-chart-bar-32"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- page-body-wrapper ends -->
     </div>
-    <!-- Page content -->
-    <script>
-        let url="{{url('admin')}}"
-        let api="{{url('api')}}"
-        let link="{{url('')}}"
-    </script>
-    <div class="container-fluid mt--6">
-      @yield('content')
-      <!-- Footer -->
-      <footer class="footer pt-0">
-        <div class="row align-items-center justify-content-lg-between">
-          <div class="col-lg-6">
-            <div class="copyright text-center  text-lg-left  text-muted">
-              &copy; {{ Date('Y') }} <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-              <li class="nav-item">
-                <a href="" class="nav-link" target="_blank">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
 		
 		<!-- <div class="wrapper">
 			<div class="header">
@@ -379,7 +255,6 @@
 				@yield('content')
 			</div>
 		</div> -->
-	
 		<script type="text/javascript">
 		$(document).ready(function(){
 			$(".sidebar-btn").click(function(){
@@ -419,14 +294,13 @@
 
 		</script>
   <!-- <script src="{{asset('vendor/jquery/dist/jquery.min.js')}}"></script> -->
-  <script src="{{asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('vendor/js-cookie/js.cookie.js')}}"></script>
-  <script src="{{asset('vendor/jquery.scrollbar/jquery.scrollbar.min.js')}}"></script>
-  <script src="{{asset('vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js')}}"></script>
-  <!-- Optional JS -->
-  <script src="{{asset('vendor/chart.js/dist/Chart.min.js')}}"></script>
-  <script src="{{asset('vendor/chart.js/dist/Chart.extension.js')}}"></script>
-  <!-- Argon JS -->
-  <script src="{{asset('js/argon.js?v=1.2.0')}}"></script>
+    <script src="{{asset('bootstrap.min.js')}}"></script>
+    <script src="{{asset('popper.min.js') }}"></script>
+    <!-- <script src="{{asset('vendor/js/vendor.bundle.base.js')}}"></script> -->
+    <!-- <script src="{{asset('vendor/js/vendor.bundle.addons.js')}}"></script> -->
+    <script src="{{asset('js/off-canvas.js')}}"></script>
+    <script src="{{asset('js/misc.js')}}"></script>
+    <!-- endinject -->
+    <script src="{{asset('vendor/js-cookie/js.cookie.js')}}"></script>
 </body>
 </html>
