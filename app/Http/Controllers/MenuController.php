@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\menu;
+use App\Menu;
+
 class MenuController extends Controller
 {
     /**
@@ -13,15 +14,15 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $json['data']=Menu::all();
-        $json['kode']=200;
+        $json['data'] = Menu::all();
+        $json['kode'] = 200;
 
         return response()->json($json);
     }
     public function menu_sedia()
     {
-        $json['data']=menu::where('status',1)->get();
-        $json['kode']=200;
+        $json['data'] = menu::where('status', 1)->get();
+        $json['kode'] = 200;
 
         return response()->json($json);
     }
@@ -44,19 +45,18 @@ class MenuController extends Controller
     public function store(Request $req)
     {
 
-        $menu=new Menu;
-        $menu->harga=$req->harga;
-        $menu->foto=$req->foto;
-        $menu->nama=$req->nama;
-        $menu->status='1';
-        $menu->jenis=$req->jenis;
+        $menu = new Menu;
+        $menu->harga = $req->harga;
+        $menu->foto = $req->foto;
+        $menu->nama = $req->nama;
+        $menu->status = '1';
+        $menu->jenis = $req->jenis;
         $menu->save();
 
-        $json['pesan']="Menu berhasil ditambahkan";
-        $json['kode']=200;
+        $json['pesan'] = "Menu berhasil ditambahkan";
+        $json['kode'] = 200;
 
         return response()->json($json);
-
     }
 
 
@@ -69,8 +69,8 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        $json['data']=$menu;
-        $json['kode']=200;
+        $json['data'] = $menu;
+        $json['kode'] = 200;
 
         return response()->json($json);
     }
@@ -83,7 +83,6 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-
     }
 
     /**
@@ -93,18 +92,18 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $req,Menu $menu)
+    public function update(Request $req, Menu $menu)
     {
-        $menu->harga=$req->harga;
-        if($req->foto!=null){
-            $menu->foto=$req->foto;
+        $menu->harga = $req->harga;
+        if ($req->foto != null) {
+            $menu->foto = $req->foto;
         }
-        $menu->nama=$req->nama;
-        $menu->status=$req->status;
+        $menu->nama = $req->nama;
+        $menu->status = $req->status;
         $menu->save();
 
-        $json['pesan']="Data Menu  sudah diubah";
-        $json['kode']=200;
+        $json['pesan'] = "Data Menu  sudah diubah";
+        $json['kode'] = 200;
 
         return response()->json($json);
     }
@@ -119,11 +118,9 @@ class MenuController extends Controller
     {
         $menu->delete();
 
-        $json['pesan']="Menu dihapus";
-        $json['kode']=200;
+        $json['pesan'] = "Menu dihapus";
+        $json['kode'] = 200;
 
         return response()->json($json);
     }
-
-
 }
