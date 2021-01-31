@@ -19,7 +19,8 @@
 
   <!-- Page level plugins -->
   <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
-
+  <script src="{{ asset('js/app.js') }}"></script>
+  
   <!-- Page level custom scripts -->
  <!-- Custom Icons -->
   <script src="https://kit.fontawesome.com/8e23d86a11.js" crossorigin="anonymous"></script>
@@ -280,7 +281,7 @@
     </div>
   </div>
 
-  <script src="{{ asset('js/app.js') }}"></script>
+
 
   <!-- Bootstrap core JavaScript-->
   <script>
