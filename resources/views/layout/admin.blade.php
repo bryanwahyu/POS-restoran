@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POS</title>
-<<<<<<< HEAD
-     <link rel="stylesheet" href="{{asset('bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('style.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
-    <script src="{{asset('jquery.min.js')}}" charset="utf-8"></script>
-    <script src="{{asset('bootstrap.min.js')}}"></script>
-    <script src="{{asset('popper.min.js') }}"></script>
-    @yield('isi')
-
-=======
     <link rel="stylesheet" href="{{asset('vendor/iconfonts/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/css/vendor.bundle.base.css')}}">
@@ -33,7 +23,6 @@
           padding:2px 6px;
       }
 </style>
->>>>>>> 2deded2996ce090359c6ba9e0219778a9440b9e7
 </head>
 <body>
 <div class="container-scroller">
@@ -172,7 +161,7 @@
             </div>
             <!-- Page Title Header Ends-->
             @yield('content')
-           
+
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
@@ -188,7 +177,7 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-		
+
 		<!-- <div class="wrapper">
 			<div class="header">
 				<div class="header-menu">
