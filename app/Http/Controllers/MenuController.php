@@ -18,7 +18,13 @@ class MenuController extends Controller
 
         return response()->json($json);
     }
+    public function menu_sedia()
+    {
+        $json['data']=menu::where('status',1)->get();
+        $json['kode']=200;
 
+        return response()->json($json);
+    }
     /**
      * Show the form for creating a new resource.
      *

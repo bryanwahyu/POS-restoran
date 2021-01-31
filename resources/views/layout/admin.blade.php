@@ -10,7 +10,7 @@
     <script src="{{asset('jquery.min.js')}}" charset="utf-8"></script>
     <script src="{{asset('bootstrap.min.js')}}"></script>
     <script src="{{asset('popper.min.js') }}"></script>
-@yield('isi')
+    @yield('isi')
 
 </head>
 <body>

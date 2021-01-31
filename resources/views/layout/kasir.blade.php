@@ -29,10 +29,10 @@
   <!-- Page level custom scripts -->
  <!-- Custom Icons -->
   <script src="https://kit.fontawesome.com/8e23d86a11.js" crossorigin="anonymous"></script>
-  
+
   <!-- Custom styles for this template-->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
-
+  @yield('isi')
 </head>
 
 <body id="page-top">

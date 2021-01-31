@@ -61,6 +61,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     //menu
     Route::get('v1/menu','MenuController@index');
+    Route::get('v1/menu/sedia','MenuController@menu_sedia');
     Route::post('v1/menu','MenuController@store');
     Route::put('v1/menu/{menu}','MenuController@update');
     Route::delete('v1/menu/{menu}','MenuController@destroy');

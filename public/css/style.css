@@ -12643,6 +12643,9 @@ body.sidebar-toggled footer.sticky-footer {
     font-weight: bold;
 }
 /* Input Spinner start here */
+.foto{
+        width: 100%;
+}
 
 .ctrl {
     -webkit-box-flex: 0;
