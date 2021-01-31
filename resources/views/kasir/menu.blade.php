@@ -25,19 +25,23 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-active">Data orderan</li>
         </ol>
-        <div class="row table-responsive">
-            <table class="table table-bordered" id="data-order">
-                <thead>
-                    <th>pesenan</th>
-                    <th>Jumlah</th>
-                    <th>Total</th>
-                    <th>Action</th>
-                </thead>
-                <tfoot>
-                    <th colspan="2">Subtotal</th>
-                    <th colspan="2" id="total"></th>
-                </tfoot>
-            </table>
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="data-order">
+                        <thead>
+                            <th>pesenan</th>
+                            <th>Jumlah</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </thead>
+                        <tfoot>
+                            <th colspan="2">Subtotal</th>
+                            <th colspan="2" id="total"></th>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-6">
@@ -45,9 +49,20 @@
             <li class="breadcrumb-active">Makanan & minuman</li>
         </ol>
         <div class="row">
-             <div class="col-12" id="data-makanan">
+            <div class="col-12" id="data-makanan">
 
-             </div>
+            </div>
+            <div class="col-12">
+                <div class="row justify-content-end">
+                    <div class="col-6">
+                        <div class="form-group text">
+                            <button class="btn btn-primary form-control mt-3">
+                                Kirim
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
