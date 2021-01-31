@@ -50,6 +50,9 @@
              </div>
         </div>
     </div>
+    <div class="row">
+        <button class="btn btn-primary" onclick="sendajax()" >Kirim</button>
+    </div>
 </div>
  <div class="modal fade" id="pesen-menu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -175,7 +178,7 @@
             })
             $("#data-makanan").html(html)
         }
-    
+
     })
     $.ajax({
         method:"get",
@@ -193,14 +196,14 @@
             $('#meja').html(html)
         }
     })
-    
+
     function data_menu(id){
         $('#pesen-menu').modal('show')
         $('#id-makanan').val(id)
         $('#nama-makanan').val('')
         $('#jumlah-makanan').val(0)
         $('#total-makanan').val(0)
-    
+
         $.ajax({
             method:"Get",
             url:api+'/v1/menu/'+id,
@@ -232,42 +235,42 @@
         button+='<button class="btn btn-success" onclick="pesanlagi('+data.id+',`'+data.nama+'`,'+data.jumlah+','+data.harga+')"> + </button>'
         button+='<button class="btn btn-danger" onclick="hapusorderan('+data.id+')">-</button>'
         button+='</div>'
-    
+
         if(nama_orderan.indexOf(data.id) === -1) {
         orderan.push(data);
         nama_orderan.push(data.id)
-    
+
         subtotal+=totalharga
-    
+
         order.row.add([
             data.nama,
             data.jumlah,
             totalharga,
             button
         ]).draw(false)
-    
+
         $('#total').text(subtotal)
         }
         else {
             alert('mohon maaf pesanan sudah ada')
         }
         $('#pesen-menu').modal('hide')
-    
+
         return false;
     }
     function hapusorderan(id){
-    
+
         orderan = orderan.filter(function(item){
         return item.id != id;
       });
       console.log(orderan)
-    
+
         nama_orderan=nama_orderan.filter(function(e){
          return e != id;
     })
-    
+
     order.clear().draw(false);
-    
+
     subtotal=0
     orderan.forEach(a=>{
         let totalharga=a.jumlah*a.harga
@@ -285,7 +288,7 @@
         ]).draw()
     })
     $('#total').text(subtotal)
-    
+
     }
     function pesanlagi(id,nama,jumlah,harga){
         $('#pesen-makanan').modal('show')
@@ -307,17 +310,17 @@
         data.nama=$('#nama-makanan-order').val()
         data.jumlah=$('#jumlah-makanan-order').val()
         data.harga=$('#harga-makanan-order').val()
-    
+
         let index=orderan.findIndex(e=>{
            return e.id = data.id
         })
-    
+
         orderan[index]=data;
-    
+
         subtotal=0
         order.clear().draw(false)
         orderan.forEach(a=>{
-    
+
         let totalharga=a.jumlah*a.harga
         let button=''
         button+='<div class="btn-group">'
@@ -332,13 +335,13 @@
             button
         ]).draw(false)
         })
-    
+
         $('#total').text(subtotal)
-        $('#pesen-makanan').modal('hide')
-        
+        $('#pesan-makanan').modal('hide')
+
         return false;
     }
-    
+
     </script>
   @endpush
 @endsection
