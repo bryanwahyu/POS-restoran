@@ -1,7 +1,12 @@
 @extends('layout.admin')
 @section('isi')
-<script src="{{asset('datatable.min.js')}}"></script>
-<link rel="stylesheet" href="{{asset('datatable.min.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css')}}">
+
+<script src="{{asset('vendor/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+
 @endsection
 
 @section('content')
@@ -9,12 +14,12 @@
     <li class="breadcrumb-active">Menu</li>
 </ol>
 <div class="row">
-    <div class="col-12 mb-3">
+    <div class="col-12 mt-3 mb-3">
      <button  onclick="tambahmodal()" class="btn btn-primary">Tambah</button>
     </div>
     <div class="col-12">
         <div class="table-responsive">
-            <table id="data" class="table table-stripped">
+              <table class="table dataTable" id="data">
                 <thead>
                     <th>Nama</th>
                     <th>Harga</th>
@@ -61,7 +66,7 @@
                 <div class="form-group form-row">
                     <label class="col-3">Harga :</label>
                     <div class="col-8">
-                        <input type="number" class="form-control" id="add-harga">
+                        <input data-type='currency' type="text" class="form-control" id="add-harga">
                     </div>
                 </div>
             </div>
@@ -131,6 +136,7 @@
   </div>
 
 <script>
+    $('#data').DataTable();
     let addfoto='';
     let editfoto='';
         $.ajax({
@@ -141,23 +147,25 @@
                 Accept:'application/json'
             },
             success:res=>{
-                let data=$('#data').DataTable()
 
+                let data = $('#data').DataTable();
+                var numFormat   = $.fn.dataTable.render.number('\,', '.', 0).display;
                 res.data.forEach(a=>{
-                    let action='<div class="btn-group">'
-                    action=action+'<button class="btn btn-primary" onclick="detail('+a.id+')"><i class="fa fa-eye"></i></button>'
-                    action=action+'<button class="btn btn-danger" onclick="hapus('+a.id+')"><i class="fa fa-trash"></i></button>'
-                    action=action+'</div>'
-                    foto='<img src="'+a.foto+'" width="150px" height="150px">'
-                    let status
+                    let action='<div class="btn-group">';
+                    action = action+'<button class="btn btn-primary" onclick="detail('+a.id+')"><i class="fa fa-eye"></i></button>';
+                    action = action+'<button class="btn btn-danger" onclick="hapus('+a.id+')"><i class="fa fa-trash"></i></button>';
+                    action = action+'</div>';
+                    harga  = numFormat(a.harga);
+                    foto   = '<img src="'+a.foto+'" width="150px" height="150px">';
+                    let status;
                     if(a.status==0){
                         status="kosong";
                     }else{
-                        status="Ada"
+                        status="Ada";
                     }
                     data.row.add([
                         a.nama,
-                        a.harga,
+                        harga,
                         foto,
                         status,
                         action
@@ -170,9 +178,10 @@
           $("#tambah-modal").modal('show')
       }
       function tambah_menu(){
+          let gHarga = $('#add-harga').val();
           let data={}
           data.nama=$('#add-nama').val()
-          data.harga=$('#add-harga').val()
+          data.harga= gHarga.replace(",", "");
           data.jenis=$('#add-jenis').val()
           data.foto=addfoto
 
@@ -273,6 +282,50 @@
                editfoto=base64
           })
         });
+
+        function formatNumber(n) {
+          return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        $("input[data-type='currency']").on({
+            keyup: function() {
+                formatCurrency($(this));
+            },
+            blur: function() {
+                formatCurrency($(this), "blur");
+            }
+        });
+        function formatCurrency(input, blur) {
+            var input_val = input.val();
+            if (input_val === "") {
+                return;
+            }
+            var original_len = input_val.length;
+            var caret_pos = input.prop("selectionStart");
+            if (input_val.indexOf(".") >= 0) {
+                var decimal_pos = input_val.indexOf(".");
+                var left_side = input_val.substring(0, decimal_pos);
+                var right_side = input_val.substring((decimal_pos + 1));
+                left_side = formatNumber(left_side);
+                //            right_side = formatNumber(right_side);
+                right_side = formatDesimal(right_side);
+                //            if (blur === "blur") {
+                //                right_side += "00";
+                //            }
+                //            right_side = right_side.substring(0, 2);
+                input_val = left_side + "." + right_side;
+            } else {
+                input_val = formatNumber(input_val);
+                input_val = input_val;
+                // if (blur === "blur") {
+                //     input_val += ".00";
+                // }
+            }
+            input.val(input_val);
+            var updated_len = input_val.length;
+            caret_pos = updated_len - original_len + caret_pos;
+            input[0].setSelectionRange(caret_pos, caret_pos);
+        }
+
     </script>
 
 @endsection
