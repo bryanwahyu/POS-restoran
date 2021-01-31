@@ -16,7 +16,10 @@
         "jquery.easing": "^1.4.1",
         "popper.js": "^1.14.7",
         "sass": "^1.30.0",
-        "sass-loader": "^10.1.0"
+        "sass-loader": "^10.1.0",
+        "datatables": "^1.10.18",
+        "datatables.net-responsive-bs4": "^2.2.3",
+        "datatables.net-select-bs4": "^1.2.7"
     },
     "devDependencies": {
         "axios": "^0.19",

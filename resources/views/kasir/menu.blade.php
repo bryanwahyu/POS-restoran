@@ -1,8 +1,4 @@
 @extends('layout.kasir')
-@section('isi')
-<script src="{{asset('datatable.min.js')}}"></script>
-<link rel="stylesheet" href="{{asset('datatable.min.css')}}">
-@endsection
 @section('content')
 <ol class="breadcrumb">
     <li class="breadcrumb-active">Data Customer</li>
@@ -145,201 +141,204 @@
       </div>
     </div>
   </div>
-<script>
-let orderan=[]
-let nama_orderan=[]
-let i=0
-let subtotal=0
-$('#total').text(subtotal)
-let order=$('#data-order').DataTable()
-$.ajax({
-    method:"get",
-    url:api+'/v1/menu/sedia',
-    headers:{
-        Authorization:"Bearer "+localStorage.getItem('token'),
-        Accept:'application/json'
-    },
-    success:res=>{
-        let html=''
-        res.data.forEach(a=>{
-            html+='<div class="col-6">'
-            html+='<div class="card" onclick="data_menu('+a.id+')">'
-            html+='<div class="card-header">'
-            html+=a.nama
-            html+='</div>'
-            html+='<div class="card-body">'
-            html+='<div class="row">'
-            html+='<img class="foto" src="'+a.foto+'">'
-            html+='</div>'
-            html+='</div>'
-            html+='</div>'
-            html+='</div>'
-        })
-        $("#data-makanan").html(html)
-    }
 
-})
-$.ajax({
-    method:"get",
-    url:api+'/v1/meja',
-    headers:{
-        Authorization:'Bearer '+ localStorage.getItem('token'),
-        Accept:'application/json'
-    },
-    success:res=>{
-        console.log(res.data)
-        let html=''
-        res.data.forEach(a=>{
-            html+='<option value="'+a.id+'">'+a.nama+'</option>'
-        })
-        $('#meja').html(html)
-    }
-})
-
-function data_menu(id){
-    $('#pesen-menu').modal('show')
-    $('#id-makanan').val(id)
-    $('#nama-makanan').val('')
-    $('#jumlah-makanan').val(0)
-    $('#total-makanan').val(0)
-
+  @push('script')
+  <script defer>
+    let orderan=[]
+    let nama_orderan=[]
+    let i=0
+    let subtotal=0
+    $('#total').text(subtotal)
+    let order=$('#data-order').DataTable()
     $.ajax({
-        method:"Get",
-        url:api+'/v1/menu/'+id,
+        method:"get",
+        url:api+'/v1/menu/sedia',
         headers:{
-            Authorization:'Bearer '+localStorage.getItem('token'),
+            Authorization:"Bearer "+localStorage.getItem('token'),
             Accept:'application/json'
         },
         success:res=>{
-            $('#nama-makanan').val(res.data.nama)
-            $('#harga-makanan').val(res.data.harga)
+            let html=''
+            res.data.forEach(a=>{
+                html+='<div class="col-6">'
+                html+='<div class="card" onclick="data_menu('+a.id+')">'
+                html+='<div class="card-header">'
+                html+=a.nama
+                html+='</div>'
+                html+='<div class="card-body">'
+                html+='<div class="row">'
+                html+='<img class="foto" src="'+a.foto+'">'
+                html+='</div>'
+                html+='</div>'
+                html+='</div>'
+                html+='</div>'
+            })
+            $("#data-makanan").html(html)
+        }
+    
+    })
+    $.ajax({
+        method:"get",
+        url:api+'/v1/meja',
+        headers:{
+            Authorization:'Bearer '+ localStorage.getItem('token'),
+            Accept:'application/json'
+        },
+        success:res=>{
+            console.log(res.data)
+            let html=''
+            res.data.forEach(a=>{
+                html+='<option value="'+a.id+'">'+a.nama+'</option>'
+            })
+            $('#meja').html(html)
         }
     })
-}
-function hitungtotal(){
-     let jum=$('#jumlah-makanan').val()
-     let harga=$('#harga-makanan').val()
-    $('#total-makanan').val(jum*harga)
-}
-function beli(event){
-    event.preventDefault()
-    let data={}
-    data.nama=$('#nama-makanan').val()
-    data.id=$('#id-makanan').val()
-    data.jumlah=$('#jumlah-makanan').val()
-    data.harga=$('#harga-makanan').val()
-    let totalharga=data.jumlah*data.harga
-    let button=''
-    button+='<div class="btn-group">'
-    button+='<button class="btn btn-success" onclick="pesanlagi('+data.id+',`'+data.nama+'`,'+data.jumlah+','+data.harga+')"> + </button>'
-    button+='<button class="btn btn-danger" onclick="hapusorderan('+data.id+')">-</button>'
-    button+='</div>'
-
-    if(nama_orderan.indexOf(data.id) === -1) {
-    orderan.push(data);
-    nama_orderan.push(data.id)
-
-    subtotal+=totalharga
-
-    order.row.add([
-        data.nama,
-        data.jumlah,
-        totalharga,
-        button
-    ]).draw(false)
-
-    $('#total').text(subtotal)
-    }
-    else {
-        alert('mohon maaf pesanan sudah ada')
-    }
-    $('#pesen-menu').modal('hide')
-
-    return false;
-}
-function hapusorderan(id){
-
-    orderan = orderan.filter(function(item){
-    return item.id != id;
-  });
-  console.log(orderan)
-
-    nama_orderan=nama_orderan.filter(function(e){
-     return e != id;
-})
-
-order.clear().draw(false);
-
-subtotal=0
-orderan.forEach(a=>{
-    let totalharga=a.jumlah*a.harga
-    let button=''
-    button+='<div class="btn-group">'
-    button+='<button class="btn btn-success" onclick="pesanlagi('+a.id+',`'+a.nama+'`,'+a.jumlah+','+a.harga+')"> + </button>'
-    button+='<button class="btn btn-danger" onclick="hapusorderan('+a.id+')">-</button>'
-    button+='</div>'
-    subtotal+=totalharga
-    order.row.add([
-        a.nama,
-        a.jumlah,
-        totalharga,
-        button
-    ]).draw()
-})
-$('#total').text(subtotal)
-
-}
-function pesanlagi(id,nama,jumlah,harga){
-    $('#pesen-makanan').modal('show')
-    $('#id-makanan').val(id)
-    $('#nama-makanan-order').val(nama)
-    $('#jumlah-makanan-order').val(jumlah)
-    $('#harga-makanan-order').val(harga)
-    $('#total-makanan-order').val(harga*jumlah)
-}
-function hitungtotalorder(){
-    let jum=$('#jumlah-makanan-order').val()
-    let harga=$('#harga-makanan-order').val()
-    $('#total-makanan-order').val(harga*jum)
-}
-function pesanlagi_to_submit(event){
-    event.preventDefault()
-    let data={}
-    data.id=$('#id-makanan').val();
-    data.nama=$('#nama-makanan-order').val()
-    data.jumlah=$('#jumlah-makanan-order').val()
-    data.harga=$('#harga-makanan-order').val()
-
-    let index=orderan.findIndex(e=>{
-       return e.id = data.id
-    })
-
-    orderan[index]=data;
-
-    subtotal=0
-    order.clear().draw(false)
-    orderan.forEach(a=>{
-
-    let totalharga=a.jumlah*a.harga
-    let button=''
-    button+='<div class="btn-group">'
-    button+='<button class="btn btn-success" onclick="pesanlagi('+a.id+',`'+a.nama+'`,'+a.jumlah+','+a.harga+')"> + </button>'
-    button+='<button class="btn btn-danger" onclick="hapusorderan('+a.id+')">-</button>'
-    button+='</div>'
-    subtotal+=totalharga
-    order.row.add([
-        a.nama,
-        a.jumlah,
-        totalharga,
-        button
-    ]).draw(false)
-    })
-
-    $('#total').text(subtotal)
-    $('#pesen-makanan').modal('hide')
     
-    return false;
-}
-
-</script>
+    function data_menu(id){
+        $('#pesen-menu').modal('show')
+        $('#id-makanan').val(id)
+        $('#nama-makanan').val('')
+        $('#jumlah-makanan').val(0)
+        $('#total-makanan').val(0)
+    
+        $.ajax({
+            method:"Get",
+            url:api+'/v1/menu/'+id,
+            headers:{
+                Authorization:'Bearer '+localStorage.getItem('token'),
+                Accept:'application/json'
+            },
+            success:res=>{
+                $('#nama-makanan').val(res.data.nama)
+                $('#harga-makanan').val(res.data.harga)
+            }
+        })
+    }
+    function hitungtotal(){
+         let jum=$('#jumlah-makanan').val()
+         let harga=$('#harga-makanan').val()
+        $('#total-makanan').val(jum*harga)
+    }
+    function beli(event){
+        event.preventDefault()
+        let data={}
+        data.nama=$('#nama-makanan').val()
+        data.id=$('#id-makanan').val()
+        data.jumlah=$('#jumlah-makanan').val()
+        data.harga=$('#harga-makanan').val()
+        let totalharga=data.jumlah*data.harga
+        let button=''
+        button+='<div class="btn-group">'
+        button+='<button class="btn btn-success" onclick="pesanlagi('+data.id+',`'+data.nama+'`,'+data.jumlah+','+data.harga+')"> + </button>'
+        button+='<button class="btn btn-danger" onclick="hapusorderan('+data.id+')">-</button>'
+        button+='</div>'
+    
+        if(nama_orderan.indexOf(data.id) === -1) {
+        orderan.push(data);
+        nama_orderan.push(data.id)
+    
+        subtotal+=totalharga
+    
+        order.row.add([
+            data.nama,
+            data.jumlah,
+            totalharga,
+            button
+        ]).draw(false)
+    
+        $('#total').text(subtotal)
+        }
+        else {
+            alert('mohon maaf pesanan sudah ada')
+        }
+        $('#pesen-menu').modal('hide')
+    
+        return false;
+    }
+    function hapusorderan(id){
+    
+        orderan = orderan.filter(function(item){
+        return item.id != id;
+      });
+      console.log(orderan)
+    
+        nama_orderan=nama_orderan.filter(function(e){
+         return e != id;
+    })
+    
+    order.clear().draw(false);
+    
+    subtotal=0
+    orderan.forEach(a=>{
+        let totalharga=a.jumlah*a.harga
+        let button=''
+        button+='<div class="btn-group">'
+        button+='<button class="btn btn-success" onclick="pesanlagi('+a.id+',`'+a.nama+'`,'+a.jumlah+','+a.harga+')"> + </button>'
+        button+='<button class="btn btn-danger" onclick="hapusorderan('+a.id+')">-</button>'
+        button+='</div>'
+        subtotal+=totalharga
+        order.row.add([
+            a.nama,
+            a.jumlah,
+            totalharga,
+            button
+        ]).draw()
+    })
+    $('#total').text(subtotal)
+    
+    }
+    function pesanlagi(id,nama,jumlah,harga){
+        $('#pesen-makanan').modal('show')
+        $('#id-makanan').val(id)
+        $('#nama-makanan-order').val(nama)
+        $('#jumlah-makanan-order').val(jumlah)
+        $('#harga-makanan-order').val(harga)
+        $('#total-makanan-order').val(harga*jumlah)
+    }
+    function hitungtotalorder(){
+        let jum=$('#jumlah-makanan-order').val()
+        let harga=$('#harga-makanan-order').val()
+        $('#total-makanan-order').val(harga*jum)
+    }
+    function pesanlagi_to_submit(event){
+        event.preventDefault()
+        let data={}
+        data.id=$('#id-makanan').val();
+        data.nama=$('#nama-makanan-order').val()
+        data.jumlah=$('#jumlah-makanan-order').val()
+        data.harga=$('#harga-makanan-order').val()
+    
+        let index=orderan.findIndex(e=>{
+           return e.id = data.id
+        })
+    
+        orderan[index]=data;
+    
+        subtotal=0
+        order.clear().draw(false)
+        orderan.forEach(a=>{
+    
+        let totalharga=a.jumlah*a.harga
+        let button=''
+        button+='<div class="btn-group">'
+        button+='<button class="btn btn-success" onclick="pesanlagi('+a.id+',`'+a.nama+'`,'+a.jumlah+','+a.harga+')"> + </button>'
+        button+='<button class="btn btn-danger" onclick="hapusorderan('+a.id+')">-</button>'
+        button+='</div>'
+        subtotal+=totalharga
+        order.row.add([
+            a.nama,
+            a.jumlah,
+            totalharga,
+            button
+        ]).draw(false)
+        })
+    
+        $('#total').text(subtotal)
+        $('#pesen-makanan').modal('hide')
+        
+        return false;
+    }
+    
+    </script>
+  @endpush
 @endsection

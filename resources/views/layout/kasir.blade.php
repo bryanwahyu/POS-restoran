@@ -284,7 +284,7 @@
 
 
   <!-- Bootstrap core JavaScript-->
-  <script>
+  <script defer>
       $.ajax({
           method:'get',
           url:api+'/v1/auth',
@@ -305,6 +305,8 @@
           window.location.replace(link)
       }
   </script>
+
+  @stack('script')
 </body>
 
 </html>
